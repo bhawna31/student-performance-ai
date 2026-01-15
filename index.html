@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Dashboard</title>
+    <style>
+        /* Background with watermark */
+        body {
+            background: url('https://cdn.pixabay.com/photo/2017/08/10/07/01/abstract-2613615_1280.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* Overlay card */
+        .overlay {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 450px;
+        }
+
+        /* Logo at top */
+        .logo {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #1e90ff;
+            margin-bottom: 25px;
+        }
+
+        input[type="file"] {
+            padding: 12px;
+            border: 2px dashed #1e90ff;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            width: 100%;
+            font-size: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: #1e90ff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3742fa;
+        }
+
+        /* Educational images container */
+        .images-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .images-row img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Responsive */
+        @media(max-width: 500px){
+            .overlay {
+                width: 90%;
+                padding: 20px;
+            }
+            .images-row img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <!-- Logo -->
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo">
+        
+        <!-- Educational icons -->
+        <div class="images-row">
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910761.png" alt="Books">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Student">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Graduation Cap">
+            <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Laptop">
+        </div>
+
+        <h2>Upload Student Data (CSV)</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <br>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</body>
+</html>

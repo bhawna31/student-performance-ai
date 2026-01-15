@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results Dashboard</title>
+    <style>
+        body {
+            background: #f0f8ff; /* light blue background */
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e90ff;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #3742fa;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #e6f0ff;
+            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        pre {
+            background: #f2f4f7;
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .plot {
+            text-align: center;
+        }
+
+        .dashboard-image {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Optional decorative image -->
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Dashboard Icon" class="dashboard-image">
+
+        <h1>Model Results Dashboard</h1>
+
+        <div class="section">
+            <h2>Model Accuracy Comparison</h2>
+            <ul>
+                {% for model, acc in results.items() %}
+                    <li>{{ model }}: {{ acc }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Classification Reports</h2>
+            <ul>
+                {% for model, report in reports.items() %}
+                    <li><strong>{{ model }}</strong><pre>{{ report }}</pre></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section plot">
+            <h2>Feature Importance</h2>
+            {{ plot|safe }}
+        </div>
+    </div>
+</body>
+</html>
